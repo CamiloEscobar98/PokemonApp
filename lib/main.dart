@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pokemon_ipt/config/preferences.dart';
 import 'package:pokemon_ipt/config/router.dart';
 import 'package:pokemon_ipt/constants/routes.dart';
-import 'package:pokemon_ipt/view-models/auth/auth.dart';
+import 'package:pokemon_ipt/view-models/exports.dart';
 import 'package:provider/provider.dart';
 
 void main() async {
@@ -24,6 +24,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => LoginInViewModel()),
+        Provider(create: (_) => PokemonViewModel()),
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

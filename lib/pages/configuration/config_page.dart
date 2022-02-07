@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_ipt/constants/exports.dart';
+import 'package:pokemon_ipt/constants/routes.dart';
 import 'package:pokemon_ipt/widgets/appbar_custom.dart';
 import 'package:pokemon_ipt/widgets/bottom_button/bottom_scaffold.dart';
 
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class ConfigurationPage extends StatelessWidget {
+  const ConfigurationPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +14,10 @@ class ProfilePage extends StatelessWidget {
       body: Container(
         margin: const EdgeInsets.all(8),
         child: const Center(
-          child: Text('Profile Page'),
+          child: Text('Configuration Page'),
         ),
       ),
-      bottomNavigationBar: const BottomScaffoldPokemon(routeIs: PROFILE_ROUTE),
+      bottomNavigationBar: const BottomScaffoldPokemon(routeIs: CONFIG_ROUTE),
     );
   }
 }

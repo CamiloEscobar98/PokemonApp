@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_ipt/view-models/vm/pokemon_list.dart';
 
 class PokemonItem extends StatelessWidget {
-  const PokemonItem({Key? key}) : super(key: key);
+  final PokemonListVM pokemon;
+  const PokemonItem({Key? key, required this.pokemon}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,21 +18,22 @@ class PokemonItem extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
-            children: const <Widget>[
+            children: <Widget>[
               Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: FadeInImage(
+                    fit: BoxFit.cover,
                     width: 80,
-                    placeholder: AssetImage('assets/pokemon_example.png'),
+                    placeholder: const AssetImage('assets/pokemon_example.png'),
                     image: NetworkImage(
-                      'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png',
+                      pokemon.image,
                     )),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: Text(
-                  'Bulbasur',
-                  style: TextStyle(
+                  pokemon.name,
+                  style: const TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.bold,
                       fontSize: 35),

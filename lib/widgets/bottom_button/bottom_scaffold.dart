@@ -28,8 +28,12 @@ class BottomScaffoldPokemon extends StatelessWidget {
               isActived: routeIs == HOME_ROUTE),
           BottomButtom(
               url: PROFILE_ROUTE,
-              icon: const Icon(Icons.settings),
+              icon: const Icon(Icons.person),
               isActived: routeIs == PROFILE_ROUTE),
+          BottomButtom(
+              icon: const Icon(Icons.settings),
+              isActived: routeIs == CONFIG_ROUTE,
+              url: CONFIG_ROUTE)
         ],
       ),
     );

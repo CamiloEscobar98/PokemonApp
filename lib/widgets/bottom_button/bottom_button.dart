@@ -17,7 +17,7 @@ class BottomButtom extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Container(
         decoration: BoxDecoration(
-            color: isActived ? Colors.white : Colors.amber[600],
+            color: isActived ? Colors.white70 : Colors.amber[600],
             border: Border.all(width: 1, color: Colors.black),
             borderRadius: const BorderRadius.all(Radius.circular(20))),
         child: IconButton(

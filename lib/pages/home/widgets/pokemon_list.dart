@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pokemon_ipt/pages/home/widgets/pokemon_item.dart';
 
+import 'package:pokemon_ipt/view-models/vm/pokemon_list.dart';
+
 class PokemonList extends StatelessWidget {
-  const PokemonList({Key? key}) : super(key: key);
+  final List<PokemonListVM> pokemons;
+  const PokemonList({Key? key, required this.pokemons}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: const <Widget>[
-        PokemonItem(),
-        PokemonItem(),
-        PokemonItem(),
-        PokemonItem(),
-      ],
+      children: pokemons.map((e) => PokemonItem(pokemon: e)).toList(),
     );
   }
 }
+
+        // PokemonItem(),
