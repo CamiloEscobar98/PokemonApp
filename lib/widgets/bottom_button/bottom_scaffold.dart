@@ -23,10 +23,13 @@ class BottomScaffoldPokemon extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: <Widget>[
           BottomButtom(
-              icon: const Icon(Icons.home), isActived: routeIs == HOME_ROUTE),
+              url: HOME_ROUTE,
+              icon: const Icon(Icons.home),
+              isActived: routeIs == HOME_ROUTE),
           BottomButtom(
+              url: PROFILE_ROUTE,
               icon: const Icon(Icons.settings),
-              isActived: routeIs == PREFERENCES_ROUTE),
+              isActived: routeIs == PROFILE_ROUTE),
         ],
       ),
     );

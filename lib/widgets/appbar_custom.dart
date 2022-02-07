@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_ipt/constants/exports.dart';
 
 class AppBarPokemon extends StatelessWidget implements PreferredSizeWidget {
   final AppBar appBar;
@@ -25,9 +26,20 @@ class AppBarPokemon extends StatelessWidget implements PreferredSizeWidget {
           image: AssetImage('assets/background/pokemon_welcome.png'),
         ),
       ),
+      actions: [
+        Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: IconButton(
+            iconSize: 30,
+            onPressed: () =>
+                Navigator.pushReplacementNamed(context, LOGIN_ROUTE),
+            icon: const Icon(Icons.logout),
+          ),
+        )
+      ],
     );
   }
 
   @override
-  Size get preferredSize => new Size.fromHeight(appBar.preferredSize.height * 1.35);
+  Size get preferredSize => Size.fromHeight(appBar.preferredSize.height * 1.35);
 }
