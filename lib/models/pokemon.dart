@@ -6,6 +6,6 @@ class PokemonList {
 
   factory PokemonList.fromJSON(Map<String, dynamic> json) {
     return PokemonList(
-        name: json['name'], url: json['url'], image: json['image']);
+        name: json['name'], url: json['url'], image: json['image_url']);
   }
 }

@@ -9,10 +9,10 @@ class PokemonList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: pokemons.map((e) => PokemonItem(pokemon: e)).toList(),
+    return SingleChildScrollView(
+      child: Column(
+        children: pokemons.map((e) => PokemonItem(pokemon: e)).toList(),
+      ),
     );
   }
 }
-
-        // PokemonItem(),
