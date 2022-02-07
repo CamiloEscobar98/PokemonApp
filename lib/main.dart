@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:pokemon_ipt/config/preferences.dart';
 import 'package:pokemon_ipt/config/router.dart';
-import 'package:pokemon_ipt/constants/routes.dart';
 import 'package:pokemon_ipt/view-models/exports.dart';
-import 'package:provider/provider.dart';
+import 'package:pokemon_ipt/constants/routes.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,6 +25,7 @@ class MyApp extends StatelessWidget {
       providers: [
         Provider(create: (_) => LoginInViewModel()),
         Provider(create: (_) => PokemonViewModel()),
+        Provider(create: (_) => ProfileViewModel())
       ],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,

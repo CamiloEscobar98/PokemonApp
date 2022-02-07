@@ -1,6 +1,5 @@
 import 'package:pokemon_ipt/config/preferences.dart';
 import 'package:pokemon_ipt/services/pokemon_service.dart';
-import 'package:pokemon_ipt/models/pokemon.dart';
 import 'package:pokemon_ipt/view-models/vm/pokemon_list.dart';
 
 class PokemonViewModel {

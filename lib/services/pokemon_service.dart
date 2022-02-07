@@ -15,7 +15,6 @@ class PokemonService {
     final jsonBody = jsonDecode(response.body);
     if (response.statusCode > 200) {
       return [];
-      print("Hi");
     } else {
       final Iterable json = jsonBody['data']['results'];
       return json.map((e) => PokemonList.fromJSON(e)).toList();
