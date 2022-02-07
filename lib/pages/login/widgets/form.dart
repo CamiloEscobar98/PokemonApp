@@ -12,13 +12,19 @@ class _FormLoginPokemonState extends State<FormLoginPokemon> {
   late TextEditingController _nickNameController;
   late String _currentNickName;
 
+  late TextEditingController _passwordController;
+  late String _currentPassword;
+
   callBackNickName(value) => setState(() => _currentNickName = value);
+  callBackPassword(value) => setState(() => _currentPassword = value);
 
   @override
   void initState() {
     super.initState();
     _currentNickName = '';
+    _currentPassword = '';
     _nickNameController = TextEditingController(text: _currentNickName);
+    _passwordController = TextEditingController(text: _currentPassword);
   }
 
   @override
@@ -34,13 +40,16 @@ class _FormLoginPokemonState extends State<FormLoginPokemon> {
             label: 'Nickname:'),
         InputFormPokemon(
             icon: const Icon(Icons.lock),
-            controller: _nickNameController,
+            controller: _passwordController,
             textInput: TextInputType.name,
-            callBackValue: callBackNickName,
+            callBackValue: callBackPassword,
             isHidden: true,
             label: 'Password:'),
         const SizedBox(height: 40),
-        const MenuOptionPokemon(title: 'Sign In'),
+        SignInButton(
+            title: 'Sign In',
+            nickname: _currentNickName,
+            password: _currentPassword),
       ],
     );
   }
