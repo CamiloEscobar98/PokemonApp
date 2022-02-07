@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => LoginInViewModel()),
+        Provider(create: (_) => LoginInViewModel()),
         Provider(create: (_) => PokemonViewModel()),
       ],
       child: MaterialApp(

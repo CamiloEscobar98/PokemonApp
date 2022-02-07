@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:pokemon_ipt/view-models/auth/auth.dart';
 import 'package:pokemon_ipt/constants/routes.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class SignInButton extends StatelessWidget {
   final String title;
@@ -15,10 +18,24 @@ class SignInButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    // var loginViewModel = Provider.of<LoginInViewModel>(context, listen: false);
+    var loginViewModel = Provider.of<LoginInViewModel>(context, listen: false);
     return GestureDetector(
-      onTap: () {
-        Navigator.pushReplacementNamed(context, HOME_ROUTE);
+      onTap: () async {
+        final result =
+            await loginViewModel.login(nickname: nickname, password: password);
+        if (!result) {
+          Alert(
+              context: context,
+              title: 'Error!',
+              desc: 'Error in the credentials!',
+              buttons: [
+                DialogButton(
+                    child: const Text('Ok'),
+                    onPressed: () => Navigator.pop(context))
+              ]).show();
+        } else {
+          Navigator.pushReplacementNamed(context, HOME_ROUTE);
+        }
       },
       child: Container(
         width: size.width * .7,
