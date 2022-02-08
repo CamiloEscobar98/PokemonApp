@@ -30,7 +30,7 @@ class _FormUserProfileState extends State<FormUserProfile> {
   callBackPhone(value) => setState(() => widget.user.phone = value);
   callBackBirthDate(value) => setState(() => widget.user.birthDate = value);
   callBackPassword(value) => setState(() => widget.user.password = value);
- callBackIsHidden(value) => setState(() => _isHidden = value);
+  callBackIsHidden(value) => setState(() => _isHidden = value);
 
   @override
   void initState() {

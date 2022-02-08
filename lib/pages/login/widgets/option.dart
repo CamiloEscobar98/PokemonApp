@@ -19,8 +19,8 @@ class SignInButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     var loginViewModel = Provider.of<LoginInViewModel>(context, listen: false);
-    return GestureDetector(
-      onTap: () async {
+    return TextButton(
+      onPressed: () async {
         final result =
             await loginViewModel.login(nickname: nickname, password: password);
         if (!result) {
@@ -41,7 +41,7 @@ class SignInButton extends StatelessWidget {
         width: size.width * .7,
         height: size.height * .06,
         alignment: Alignment.center,
-        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+        margin: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
         decoration: BoxDecoration(
           color: Colors.amber[500],
           border: Border.all(color: Colors.black),
