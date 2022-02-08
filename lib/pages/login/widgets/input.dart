@@ -21,7 +21,7 @@ class InputFormPokemon extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      margin: const EdgeInsets.only(top: 10, bottom: 15),
+      margin: const EdgeInsets.only(top: 10, bottom: 10),
       width: size.width * 0.85,
       decoration: BoxDecoration(
           color: Colors.white,

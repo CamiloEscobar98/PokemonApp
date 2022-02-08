@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    final _prefs = UserPreferences();
     return MultiProvider(
       providers: [
         Provider(create: (_) => LoginInViewModel()),
@@ -33,7 +34,8 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.amber,
           ),
-          initialRoute: LOGIN_ROUTE,
+          initialRoute:
+              _prefs.getRememberToken.isEmpty ? LOGIN_ROUTE : HOME_ROUTE,
           onGenerateRoute: router.generateRoute),
     );
   }

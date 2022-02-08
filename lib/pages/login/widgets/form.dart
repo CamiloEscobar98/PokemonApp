@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_ipt/constants/exports.dart';
 import 'package:pokemon_ipt/pages/login/widgets/exports.dart';
 
 class FormLoginPokemon extends StatefulWidget {
@@ -29,6 +30,7 @@ class _FormLoginPokemonState extends State<FormLoginPokemon> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Column(
       children: [
         const SizedBox(height: 15),
@@ -45,11 +47,34 @@ class _FormLoginPokemonState extends State<FormLoginPokemon> {
             callBackValue: callBackPassword,
             isHidden: true,
             label: 'Password:'),
-        const SizedBox(height: 40),
+        const SizedBox(height: 10),
         SignInButton(
             title: 'Sign In',
             nickname: _currentNickName,
             password: _currentPassword),
+        GestureDetector(
+          onTap: () => Navigator.pushNamed(context, SIGNUP_ROUTE),
+          child: Container(
+            alignment: Alignment.center,
+            width: size.width * .7,
+            height: size.height * .06,
+            decoration: BoxDecoration(
+              color: Colors.amber[500],
+              border: Border.all(color: Colors.black),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(20),
+              ),
+            ),
+            child: const Text(
+              'Sign Up',
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20),
+            ),
+          ),
+        )
       ],
     );
   }

@@ -53,7 +53,7 @@ class SignInButton extends StatelessWidget {
           title,
           textAlign: TextAlign.center,
           style: const TextStyle(
-              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 25),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 20),
         ),
       ),
     );

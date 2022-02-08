@@ -1,3 +1,4 @@
 export 'package:pokemon_ipt/pages/login/login_page.dart';
 export 'package:pokemon_ipt/pages/home/home_page.dart';
 export 'package:pokemon_ipt/pages/profile/profile_page.dart';
+export 'package:pokemon_ipt/pages/signup/signup_page.dart';

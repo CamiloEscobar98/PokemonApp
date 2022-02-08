@@ -18,7 +18,7 @@ class UserPreferences {
     _prefs.setString('rememberToken', token);
   }
 
-  get getRememberToken {
+  String get getRememberToken {
     return _prefs.getString('rememberToken') ?? "";
   }
 }

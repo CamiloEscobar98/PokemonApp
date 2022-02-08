@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_ipt/widgets/input_password.dart';
 import 'package:provider/provider.dart';
 import 'package:pokemon_ipt/view-models/exports.dart';
 import 'package:pokemon_ipt/view-models/vm/user_profile.dart';
-import 'package:pokemon_ipt/pages/profile/widgets/input.dart';
+import 'package:pokemon_ipt/widgets/input.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class FormUserProfile extends StatefulWidget {
@@ -21,12 +22,15 @@ class _FormUserProfileState extends State<FormUserProfile> {
   late TextEditingController _birthDateController;
   late TextEditingController _passwordController;
 
+  bool _isHidden = true;
+
   callBackFullName(value) => setState(() => widget.user.fullname = value);
   callBackNickname(value) => setState(() => widget.user.nickname = value);
   callBackEmail(value) => setState(() => widget.user.email = value);
   callBackPhone(value) => setState(() => widget.user.phone = value);
   callBackBirthDate(value) => setState(() => widget.user.birthDate = value);
   callBackPassword(value) => setState(() => widget.user.password = value);
+ callBackIsHidden(value) => setState(() => _isHidden = value);
 
   @override
   void initState() {
@@ -51,50 +55,45 @@ class _FormUserProfileState extends State<FormUserProfile> {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
           ),
-          InputFormProfile(
+          InputFormCustom(
             title: 'Nickname:',
             icon: const Icon(Icons.person_pin_circle_rounded),
-            isHidden: false,
             textInputType: TextInputType.name,
             callBackValue: callBackNickname,
             controller: _nicknameController,
           ),
-          InputFormProfile(
+          InputFormCustom(
             title: 'Fullname:',
             icon: const Icon(Icons.person),
-            isHidden: false,
             textInputType: TextInputType.name,
             callBackValue: callBackFullName,
             controller: _fullnameController,
           ),
-          InputFormProfile(
+          InputFormCustom(
             title: 'Email:',
             icon: const Icon(Icons.email),
-            isHidden: false,
             textInputType: TextInputType.emailAddress,
             callBackValue: callBackEmail,
             controller: _emailController,
           ),
-          InputFormProfile(
+          InputFormCustom(
             title: 'Phone:',
-            icon: const Icon(Icons.person),
-            isHidden: false,
+            icon: const Icon(Icons.phone),
             textInputType: TextInputType.phone,
             callBackValue: callBackPhone,
             controller: _phoneController,
           ),
-          InputFormProfile(
+          InputFormCustom(
             title: 'Birth Date:',
-            icon: const Icon(Icons.person),
-            isHidden: false,
+            icon: const Icon(Icons.calendar_today),
             textInputType: TextInputType.datetime,
             callBackValue: callBackBirthDate,
             controller: _birthDateController,
           ),
-          InputFormProfile(
+          InputPasswordFormCustom(
+            isHidden: _isHidden,
+            callBackIsHidden: callBackIsHidden,
             title: 'Password:',
-            icon: const Icon(Icons.person),
-            isHidden: false,
             textInputType: TextInputType.visiblePassword,
             callBackValue: callBackPassword,
             controller: _passwordController,
@@ -140,8 +139,6 @@ class _FormUserProfileState extends State<FormUserProfile> {
               ),
             ),
           )
-       
-           
         ],
       ),
     );

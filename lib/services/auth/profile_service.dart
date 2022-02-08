@@ -23,6 +23,8 @@ class ProfileService {
       {required String token, required User user}) async {
     final url = Uri.http(BASE_URL, '/profile');
 
+    print(user.password);
+
     final response = await http.put(url, headers: <String, String>{
       'Authorization': token
     }, body: <String, String>{
@@ -34,7 +36,6 @@ class ProfileService {
       'real_password': user.password
     });
 
-    print(response.body);
     return response.statusCode == 200;
   }
 }
